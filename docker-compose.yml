@@ -5,7 +5,7 @@ services:
     image: nginx:latest
     container_name: web-server-container
     volumes:
-      - ./app:/var/www/app
+      - ./:/var/www/app
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
     ports:
       - "8080:80"
@@ -19,7 +19,7 @@ services:
       context: .
       dockerfile: ./docker/php/Dockerfile
     volumes:
-      - ./app:/var/www/app
+      - ./:/var/www/app
     ports:
       - "9000:9000"
     networks:
